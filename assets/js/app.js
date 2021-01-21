@@ -2,15 +2,32 @@
 // You can check this Variables are Available or not under the window object
 var firstName; 
 var lastName; 
+
 var age; 
 var job;
+
 // Receive the values from input 
 firstName = prompt("Enter Your First Name");
 lastName = prompt("Enter Your Last Name");
+
 job = prompt("What is Your Profession ?")
 age = prompt("Enter Your Age");
+
 // Display  the result on console from input 
-console.log("Here is your Profile ")
+console.log("Here is your Profile ");
 console.log("Full Name: " + firstName + " "+lastName);
 console.log("Profession : " + job);
 console.log("Age : " + age + " " + "years old");
+
+
+let tempAge;
+let isEligibleVote = tempAge;
+tempAge = parseInt(age);
+if (tempAge >= 18){
+    isEligibleVote  = true;
+}
+else{
+    isEligibleVote = false;
+}
+
+console.log("is Eligible to Vote"+isEligibleVote)
