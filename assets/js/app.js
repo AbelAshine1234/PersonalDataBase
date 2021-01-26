@@ -1,69 +1,83 @@
-// Declaring variables 
-// You can check this Variables are Available or not under the window object
-var firstName; 
-var lastName; 
-
-var birthYear; 
+var firstName;
+var lastName;
+var profession;
+var birthYear;
 var job;
 
 var weight;
 var height;
 
-// Receive the values from input 
-firstName = prompt("Enter Your First Name");
-lastName = prompt("Enter Your Last Name");
+(
+    function(){
+        firstName = prompt("What is your first name?");
+        lastName = prompt("What is your last name?");
+        profession = prompt("What is your proffesion");
+        birthYear =       prompt("Enter your birth Year");
+        
+        weight =   prompt("Enter your weight in kg");
+        height = prompt("Enter your height in meter")
+        
+        
+        
+        console.log("Here is your profile");
+        console.log("Full Name\t\t"+firstName+"\t\t"+lastName);
+        console.log("Proffesion\t\t\t"+profession);
+        console.log("You are  Born in \t"+birthYear);
 
-job = prompt("What is Your Profession ?")
-birthYear = prompt("Enter Your Birth Year");
-
-// Display  the result on console from input 
-console.log("Here is your Profile ");
-console.log("Full Name: " + firstName + " "+lastName);
-console.log("Profession : " + job);
-console.log("Birth Year: " + birthYear + " " + "");
+       console.log("Your Bmi Is\t\t\t"+calBMI(weight,height));
+    }
+)();
 
 
-let tempAge ;
-tempAge = parseInt(ageCalc(birthYear));
+let isEligibeToVote;
 
-let isEligibleVote = tempAge;
-if (tempAge >= 18){
-    isEligibleVote  = true;
+let tempAge = ageCalc(birthYear);
+ 
+
+if(tempAge>=18){
+    isEligibeToVote =true;
 }
 else{
-    isEligibleVote = false;
+    isEligibeToVote =false;
 }
 
-console.log("is Eligible to Vote"+isEligibleVote)
+console.log('Is Eligible to vote'+isEligibeToVote);
 
 
 
+let familyMembers = new Array();
 
-// 
-let familyMember = new Array();
-let noOfFamily;
+let numberOfFamily;
 
-noOfFamily = prompt("No Of Family");
+numberOfFamily = prompt("Enter your family number");
 
-for (let i = 0; i< parseInt(noOfFamily); i++) {
-    familyMember[i] =  prompt("your family members "+(i+1));
 
+
+for (let i  = 0; i  <numberOfFamily; i++) {
+
+    familyMembers[i] = prompt("Enter your family member  "+i +"\t\t");
 }
 
-
-console.log("Family Member");
-
-familyMember.forEach(function(familyMember,index) {
-    console.log("Family Member  " + (index + 1) + " : " + familyMember);
+ 
+ 
+familyMembers.forEach(function(member) {
+    console.log("Family Member    : " + familyMembers.indexOf(member)+1+"\t\t"+member);
  });
+ 
 
-function ageCalc(birthYear){
-    return new Date().getFullYear() - birthYear;
 
-}
 
-let calcBmi = function(weight,height){
-    return weight / Math.pow(height);
+ function ageCalc(birthYear){
 
-}
-console.log(calcBmi);
+ 
+     return new Date().getFullYear()-birthYear;
+ }
+
+
+ 
+
+function calBMI(weight,height){
+
+return weight/height *height;
+
+ }
